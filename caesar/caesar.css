@@ -1,0 +1,81 @@
+ul {
+    display: grid;
+    list-style: none;
+    width: 100%;
+    column-gap: 1vw;
+    grid-template-columns: auto auto;
+    grid-template-rows: 5vh;
+    justify-content: start;
+    font-size: 16pt;
+}
+
+ul>li>a {
+    text-decoration: none;
+}
+
+.random {
+    grid-column-start: 1;
+    grid-row: 1;
+    background-color: #dfdfdf;
+    width: 10vw;
+    text-align: center;
+    
+}
+
+.random>a{
+    color: #4b4a4a;
+}
+
+.caesar {
+    grid-column-start: 2;
+    grid-row: 1;
+    width: 10vw;
+    background-color: #4b4a4a;
+    text-align: center;
+    height: 1.5em;
+    /* box-shadow: 5em; */
+    
+}
+
+.caesar>a{
+    color: white;
+}
+
+.diagram{
+    height: 40vh;
+    width: 100vw;
+    display: grid;
+    align-content: center;
+}
+.diagram>table {
+    height: 100%;
+}
+
+
+
+form {
+    height: 40vh;
+}
+
+form>button {
+    margin-left: 5vw;
+    margin-bottom: 0.3em;
+}
+
+.box-partition {
+    height: 100%;
+    display: grid;
+    column-gap: 5vw;
+    row-gap: 0;
+    grid-template-columns: 40vw 40vw;
+    grid-row: 100%;
+    justify-content: center;
+    width: 100%;
+    height: 20vmin;
+}
+
+.box-label {
+    display: grid;
+    grid-row: auto 95%;
+
+}
