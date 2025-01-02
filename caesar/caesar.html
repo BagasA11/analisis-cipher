@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caesar Cipher page</title>
+    <link rel="stylesheet" href="./caesar.css">
+</head>
+<body>
+    <ul>
+        <li class="random"><a href="../index.html">Random</a></li>
+        <li class="caesar"><a href="#">Caesar</a></li>
+    </ul>
+    <div class="diagram">
+        <table border="1" >
+            <tr >
+               <th>Eng-word</th>
+            </tr>
+            <tr>
+               <th>Eng-Freq (%)</th> 
+            </tr>
+            <tr >
+               <th>Origin-Word</th> 
+            </tr>
+            <tr >
+               <th>Origin-Freq (%)</th> 
+            </tr>
+        </table>
+    </div>
+
+    <div class="form-box">
+        <form id="form">
+            <button  type="submit" id="submit">submit</button>
+            <div class="box-partition">
+                <div class="text-label-1 box-label">
+                    <label for="">input cipher</label>
+                    <textarea name="cipher" id="" class="input" required></textarea>
+                </div>
+                <div class="text-label2 box-label">
+                    <label for="" class="output">predict</label>
+                    <textarea name="plain" id="plain" class="output" readonly></textarea>
+                </div> 
+                <input type="hidden" readonly value="" name="csrf" id="csrf">   
+            </div>
+        </form>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
