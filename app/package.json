@@ -1,0 +1,18 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "aplikasi untuk analisis cipher text",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "live-server --port=3000 --mount=./caesar.html"
+  },
+  "keywords": [
+    "analisi-cipher"
+  ],
+  "author": "github.com/bagasa11",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.7.1"
+  }
+}
