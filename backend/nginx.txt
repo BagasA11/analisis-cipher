@@ -1,0 +1,36 @@
+http {
+    upstream backend_cipher {
+        server 127.0.0.1:5000;
+    }
+
+    upstream frontend_cipher {
+        server 127.0.0.1:3000;
+    }
+
+    server {
+        listen 80;
+        server_name testpy.com;
+
+        access_log /var/log/nginx/access.log;
+        error_log /var/log/nginx/error.log;
+
+        location /cipher/api {
+            include uwsgi_params;
+            uwsgi_pass unix:/home/sammy/myproject/myproject.sock;
+            uwsgi_pass unix:/home/bagas/analisis-cipher/backend/app.sock;
+            proxy_pass http://backend_cipher;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location / {
+            proxy_pass http://frontend_cipher;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+    }
+}

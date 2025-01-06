@@ -1,5 +1,19 @@
+# import os
+# import platform
+
+# APP_DIR = ''
+# curr_dir = os.getcwd()
+
+# setup working directory for python
+# not to be implemented because it can be harm my device in public access like public repo
+# if platform.system() == "Windows":
+    # APP_DIR = '/'
+
+# if curr_dir != APP_DIR:
+#     os.chdir(curr_dir)
+
 import encrypt
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, Response
 from flask_cors import CORS, cross_origin
 from joblib import load
 from collections import Counter
@@ -47,7 +61,7 @@ def parse_input(req: str) ->str:
     return cleaned_string
 
 
-@app.route('/caesar', methods=['POST'])
+@app.route('/api/caesar', methods=['POST'])
 @cross_origin()
 def caesar():
    req = request.get_json()
@@ -61,14 +75,14 @@ def caesar():
    response_data['plain_frequency'] = extact_feature(result)
    return response_data
 
-@app.route('/encrypt', methods=['POST'])
+@app.route('/api/encrypt', methods=['POST'])
 @cross_origin
 def encrypt():
     req = request.get_json()
-    if not req['plaintext'] or not req['shift']:
-        return jsonify({"error":
-                        "input plaintext atau shift tidak boleh kosong"
-                        }), 400 
+    # if not req['plaintext'] or not req['shift']:
+    #     return jsonify({"error":
+    #                     "input plaintext atau shift tidak boleh kosong"
+    #                     }) 
     return encrypt_caesar(str(req['plaintext']), int(req["shift"]))
 
 if __name__ == '__main__':
